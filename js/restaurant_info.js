@@ -101,11 +101,13 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
       button.className = "favBlack";
       isFavorite = "false";
       DBHelper.updateFavourite(restaurant.id,isFavorite);
+      restaurant.is_favorite = "false";
       console.log("Unnfavouriting...")
     }else {
       button.className = "favRed";
       isFavorite = "true";
       DBHelper.updateFavourite(restaurant.id,isFavorite);
+      restaurant.is_favorite = "true";
       console.log("favouriting...")
     }
   })
@@ -122,12 +124,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
     }
   });
 }
-
-function checkFavStatus(){
-const res_id = this.dataset.id;
-const fav = this.getAttribute('aria-pressed')=='true';
-console.log("redsssss",fav);
-}  
+ 
 
 /**
  * Create restaurant operating hours HTML table and add it to the webpage.
