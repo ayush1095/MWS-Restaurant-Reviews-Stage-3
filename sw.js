@@ -5,6 +5,7 @@ let filesToCache = [
     '/',
     'index.html',
     'js/main.js',
+    'js/idb.js',
     'js/dbhelper.js',
     'js/restaurant_info.js',
     'data/restaurants.json',
@@ -39,7 +40,11 @@ self.addEventListener('fetch', (event) => {
         fetch(event.request);
     }
     if (event.request.url.indexOf('http://localhost:1337/reviews/') == 0) {
-        return;
+        fetch(event.request);
+    }if (event.request.url.indexOf('http://localhost:1337/restaurants/2/?is_favorite=false') == 0) {
+        fetch(event.request);
+    }if (event.request.url.indexOf('http://localhost:1337/restaurants/2/?is_favorite=true') == 0) {
+        fetch(event.request);
     }
 
 

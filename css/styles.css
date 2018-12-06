@@ -144,6 +144,11 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Listing ====================== */
+
+button.favRed{
+  color: red;
+}
+
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
@@ -157,12 +162,13 @@ nav h1 a {
 }
 #restaurants-list li {
   background-color: #fff;
-  border: 2px solid #ccc;
   font-family: Arial,sans-serif;
   margin: 15px;
-  padding: 10px;
+  padding: 0px;
   text-align: center;
-  width: 270px;
+  width: 285px;
+  padding-bottom: 22px;
+  box-shadow: 5px 11px 26px 4px grey;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -188,12 +194,12 @@ nav h1 a {
 }
 #restaurants-list li a {
   background-color: orange;
-  border-bottom: 3px solid #eee;
+  /* border-bottom: 3px solid #eee; */
   color: #fff;
   display: inline-block;
-  font-size: 10pt;
-  margin: 15px 0 0;
-  padding: 8px 30px 10px;
+  font-size: 11pt;
+  margin: 23px 0 0;
+  padding: 7px 36px 7px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -297,6 +303,16 @@ nav h1 a {
   margin: 0 0 10px;
 }
 
+#review-form{
+  width: 50%;
+  padding: 10px 10px 22px 42px;
+}
+
+#comments{
+  width: 50%;
+}
+
+
 /* ====================== Media Queries ====================== */
 @media only screen and (max-width: 375px) {
   .filter-options select {
@@ -309,6 +325,9 @@ nav h1 a {
     margin: 0;
   }
 
+  #comments{
+  width: 130%;
+}
   
 } 
 
@@ -318,6 +337,10 @@ nav h1 a {
     order: 0;
     width: 100vw;
   }
+
+  #comments{
+  width: 140%;
+ }
 
   .inside {
     display: flex;

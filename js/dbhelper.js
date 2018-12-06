@@ -313,6 +313,30 @@ class DBHelper {
     }
   }
 
+
+
+
+  static updateFavourite(restaurant_id, isFavorite){
+    console.log("changing fav status on server");
+    var isFavoriteData = isFavorite; 
+
+    fetch(`http://localhost:1337/restaurants/${restaurant_id}/?is_favorite=${isFavoriteData}`,{
+      method : 'PUT'
+    }).then(()=>{
+      var dbPromise =  idb.open('restaurantsDB', 1);
+      dbPromise.then((db)=> {
+        var tx = db.transaction("restaurants", 'readwrite');
+        var store = tx.objectStore("restaurants");      
+        store.get(restaurant_id).then(restaurant=>{
+          restaurant.is_favorite = isFavoriteData;
+          store.put(restaurant);
+       });
+     })      
+
+    })
+  
+  }
+
   
   static submitReview(review){
 
